@@ -45,7 +45,6 @@
       --transition: .22s cubic-bezier(.4,0,.2,1);
       --sidebar-width: 260px;
       --header-height: 64px;
-      /* Reward Zone accent */
       --rz-primary: #ec4899;
       --rz-primary-light: #f472b6;
       --rz-secondary: #8b5cf6;
@@ -775,7 +774,337 @@
     .rz-selected-winner-name { font-weight: 700; font-size: .85rem; color: #fff; }
     .rz-selected-winner-prize { font-size: .75rem; color: var(--success); font-weight: 700; margin-top: 2px; }
 
-    /* Reward Zone Result Cards */
+    /* ══════════════════════════════════════════════════════════════
+       🏆 ADVANCED RESULT PAGE — UNIQUE AURORA DESIGN SYSTEM
+    ══════════════════════════════════════════════════════════════ */
+    .rz-results-hero {
+      background: linear-gradient(135deg, #0d0f18 0%, #151a2e 30%, #1a1230 60%, #0d1520 100%);
+      border: 1px solid rgba(99,102,241,.18);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rz-results-hero::before {
+      content:''; position:absolute; top:-60px; right:-40px;
+      width:200px; height:200px; border-radius:50%;
+      background: radial-gradient(circle, rgba(99,102,241,.2), rgba(168,85,247,.1), transparent 70%);
+      pointer-events:none; animation: auroraFloat 6s ease-in-out infinite;
+    }
+    .rz-results-hero::after {
+      content:''; position:absolute; bottom:-40px; left:20%;
+      width:180px; height:180px; border-radius:50%;
+      background: radial-gradient(circle, rgba(14,165,233,.12), rgba(6,214,160,.08), transparent 70%);
+      pointer-events:none; animation: auroraFloat 8s ease-in-out infinite reverse;
+    }
+    @keyframes auroraFloat {
+      0%,100% { transform:translate(0,0) scale(1); }
+      50% { transform:translate(15px,-10px) scale(1.1); }
+    }
+    .rz-results-hero-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(99,102,241,.2), rgba(168,85,247,.15));
+      border: 1px solid rgba(99,102,241,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 14px; position: relative; z-index: 1;
+      box-shadow: 0 4px 20px rgba(99,102,241,.15);
+    }
+    .rz-results-hero-title {
+      font-size: 1.7rem; font-weight: 900; color: #fff;
+      position: relative; z-index: 1; margin-bottom: 6px;
+      background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #93c5fd 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .rz-results-hero-sub {
+      font-size: .85rem; color: #8b92a8; font-weight: 500;
+      position: relative; z-index: 1; line-height: 1.5;
+    }
+    .rz-results-hero-stats {
+      display: flex; gap: 20px; margin-top: 18px; position: relative; z-index: 1; flex-wrap: wrap;
+    }
+    .rz-results-hero-stat {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .rz-results-hero-stat-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .rz-results-hero-stat-text {
+      font-size: .78rem; font-weight: 700; color: #9ca3b8;
+    }
+    .rz-results-hero-stat-text b { color: #fff; font-size: .88rem; }
+
+    /* Result Card — Glass Aurora */
+    .rz-res-card {
+      background: linear-gradient(145deg, rgba(15,18,30,.95), rgba(22,27,45,.9));
+      border: 1px solid rgba(99,102,241,.12);
+      border-radius: 18px;
+      padding: 0;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s ease;
+      box-shadow: 0 4px 30px rgba(0,0,0,.25);
+    }
+    .rz-res-card:hover {
+      border-color: rgba(99,102,241,.3);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(99,102,241,.1);
+    }
+    .rz-res-card-topbar {
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #f59e0b, #06d6a0);
+      background-size: 300% 100%;
+      animation: gradientShift 4s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .rz-res-card-header {
+      padding: 22px 24px 0;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .rz-res-card-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+      position: relative;
+    }
+    .rz-res-card-icon.gold-tier {
+      background: linear-gradient(135deg, rgba(251,191,36,.15), rgba(245,158,11,.1));
+      color: #fbbf24;
+      border: 1px solid rgba(251,191,36,.25);
+      box-shadow: 0 4px 16px rgba(251,191,36,.12);
+    }
+    .rz-res-card-icon.diamond-tier {
+      background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(168,85,247,.1));
+      color: #818cf8;
+      border: 1px solid rgba(99,102,241,.25);
+      box-shadow: 0 4px 16px rgba(99,102,241,.12);
+    }
+    .rz-res-card-icon.emerald-tier {
+      background: linear-gradient(135deg, rgba(16,185,129,.15), rgba(6,214,160,.1));
+      color: #34d399;
+      border: 1px solid rgba(16,185,129,.25);
+      box-shadow: 0 4px 16px rgba(16,185,129,.12);
+    }
+    .rz-res-card-icon .tier-glow {
+      position: absolute; inset: -3px; border-radius: 16px;
+      background: inherit; filter: blur(10px); opacity: .4; z-index: -1;
+    }
+
+    .rz-res-card-title-area { flex: 1; }
+    .rz-res-card-title {
+      font-weight: 900; font-size: 1.08rem; color: #fff; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .rz-res-card-desc {
+      font-size: .78rem; color: #7c8599; font-weight: 500; line-height: 1.4;
+    }
+    .rz-res-completed-badge {
+      background: linear-gradient(135deg, rgba(99,102,241,.12), rgba(168,85,247,.08));
+      color: #a78bfa;
+      font-size: .68rem; font-weight: 800;
+      padding: 5px 14px; border-radius: 99px;
+      border: 1px solid rgba(168,85,247,.2);
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    .rz-res-card-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; padding: 18px 24px;
+    }
+    @media (min-width: 600px) { .rz-res-card-stats { grid-template-columns: repeat(6, 1fr); } }
+    .rz-res-stat-box {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 10px;
+      padding: 12px 8px;
+      text-align: center;
+      transition: .2s;
+    }
+    .rz-res-stat-box:hover { background: rgba(255,255,255,.05); border-color: rgba(99,102,241,.15); }
+    .rz-res-stat-val { font-size: 1.05rem; font-weight: 900; margin-bottom: 3px; }
+    .rz-res-stat-val.clr-indigo { color: #818cf8; }
+    .rz-res-stat-val.clr-violet { color: #c084fc; }
+    .rz-res-stat-val.clr-amber { color: #fbbf24; }
+    .rz-res-stat-val.clr-emerald { color: #34d399; }
+    .rz-res-stat-val.clr-sky { color: #38bdf8; }
+    .rz-res-stat-val.clr-rose { color: #fb7185; }
+    .rz-res-stat-label {
+      font-size: .6rem; font-weight: 700; color: #5b6276;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+
+    /* Winner podium section */
+    .rz-res-winners-section {
+      padding: 0 24px 22px;
+    }
+    .rz-res-winners-title {
+      font-size: .82rem; font-weight: 800; color: #fff;
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 14px; padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+    .rz-res-winners-title i { color: #fbbf24; }
+
+    .rz-res-winner-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; margin-bottom: 6px;
+      border-radius: 10px;
+      transition: all .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .rz-res-winner-row::before {
+      content: ''; position: absolute; inset: 0;
+      border-radius: 10px; opacity: 0;
+      transition: opacity .2s;
+    }
+    .rz-res-winner-row:hover::before { opacity: 1; }
+    .rz-res-winner-row:hover { transform: translateX(4px); }
+
+    /* Rank-specific styles */
+    .rz-res-winner-row.rank-1 {
+      background: linear-gradient(135deg, rgba(251,191,36,.08), rgba(245,158,11,.04));
+      border: 1px solid rgba(251,191,36,.2);
+    }
+    .rz-res-winner-row.rank-1::before {
+      background: linear-gradient(135deg, rgba(251,191,36,.12), rgba(245,158,11,.06));
+    }
+    .rz-res-winner-row.rank-2 {
+      background: linear-gradient(135deg, rgba(148,163,184,.08), rgba(203,213,225,.04));
+      border: 1px solid rgba(148,163,184,.15);
+    }
+    .rz-res-winner-row.rank-2::before {
+      background: linear-gradient(135deg, rgba(148,163,184,.12), rgba(203,213,225,.06));
+    }
+    .rz-res-winner-row.rank-3 {
+      background: linear-gradient(135deg, rgba(180,83,9,.08), rgba(217,119,6,.04));
+      border: 1px solid rgba(180,83,9,.15);
+    }
+    .rz-res-winner-row.rank-3::before {
+      background: linear-gradient(135deg, rgba(180,83,9,.12), rgba(217,119,6,.06));
+    }
+    .rz-res-winner-row.rank-normal {
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.05);
+    }
+    .rz-res-winner-row.rank-normal::before {
+      background: rgba(99,102,241,.05);
+    }
+
+    .rz-res-winner-rank-badge {
+      width: 32px; height: 32px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: .78rem; flex-shrink: 0;
+    }
+    .rank-badge-1 {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #78350f; box-shadow: 0 3px 12px rgba(251,191,36,.3);
+    }
+    .rank-badge-2 {
+      background: linear-gradient(135deg, #94a3b8, #cbd5e1);
+      color: #334155; box-shadow: 0 3px 12px rgba(148,163,184,.2);
+    }
+    .rank-badge-3 {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #fff; box-shadow: 0 3px 12px rgba(217,119,6,.2);
+    }
+    .rank-badge-normal {
+      background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(168,85,247,.1));
+      color: #a5b4fc; border: 1px solid rgba(99,102,241,.2);
+    }
+
+    .rz-res-winner-avatar {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: .82rem; flex-shrink: 0; color: #fff;
+    }
+    .rz-res-winner-info { flex: 1; }
+    .rz-res-winner-name { font-weight: 800; font-size: .86rem; color: #fff; }
+    .rz-res-winner-uid { font-size: .68rem; color: #5b6276; font-weight: 600; margin-top: 1px; }
+    .rz-res-winner-prize-tag {
+      font-size: .78rem; font-weight: 800; padding: 4px 12px;
+      border-radius: 8px; white-space: nowrap;
+    }
+    .prize-tag-gold { background: rgba(251,191,36,.12); color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
+    .prize-tag-default { background: rgba(99,102,241,.1); color: #a5b4fc; border: 1px solid rgba(99,102,241,.15); }
+
+    .rz-res-card-footer {
+      padding: 14px 24px;
+      background: rgba(0,0,0,.15);
+      border-top: 1px solid rgba(255,255,255,.04);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap;
+    }
+    .rz-res-card-footer-info {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .rz-res-footer-chip {
+      font-size: .7rem; font-weight: 600; color: #5b6276;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .rz-res-footer-chip i { font-size: .65rem; color: #4b5366; }
+
+    /* Empty state for results */
+    .rz-results-empty {
+      text-align: center; padding: 50px 20px;
+      background: linear-gradient(135deg, rgba(15,18,30,.6), rgba(22,27,45,.4));
+      border: 1px dashed rgba(99,102,241,.15);
+      border-radius: var(--radius-lg);
+    }
+    .rz-results-empty-icon {
+      width: 72px; height: 72px; border-radius: 20px;
+      background: linear-gradient(135deg, rgba(99,102,241,.1), rgba(168,85,247,.06));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 16px;
+      color: rgba(99,102,241,.4);
+    }
+    .rz-results-empty-title { font-size: 1rem; font-weight: 800; color: #6b7280; margin-bottom: 6px; }
+    .rz-results-empty-sub { font-size: .78rem; color: #4b5366; font-weight: 500; }
+
+    /* Filter tabs for results */
+    .rz-results-filter {
+      display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .rz-results-filter-tab {
+      padding: 8px 16px; font-size: .76rem; font-weight: 700; border-radius: 10px;
+      cursor: pointer; transition: all .2s;
+      border: 1px solid rgba(99,102,241,.12);
+      background: rgba(99,102,241,.04); color: #7c8599;
+    }
+    .rz-results-filter-tab:hover { background: rgba(99,102,241,.08); color: #a5b4fc; }
+    .rz-results-filter-tab.active {
+      background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(168,85,247,.1));
+      color: #c4b5fd; border-color: rgba(99,102,241,.3);
+    }
+
+    .rz-res-summary-bar {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px; margin-bottom: 22px;
+    }
+    .rz-res-summary-item {
+      background: linear-gradient(145deg, rgba(15,18,30,.8), rgba(22,27,45,.6));
+      border: 1px solid rgba(99,102,241,.1);
+      border-radius: 12px; padding: 16px 14px; text-align: center;
+      transition: .2s;
+    }
+    .rz-res-summary-item:hover { border-color: rgba(99,102,241,.25); transform: translateY(-1px); }
+    .rz-res-summary-val { font-size: 1.3rem; font-weight: 900; color: #fff; margin-bottom: 3px; }
+    .rz-res-summary-label { font-size: .63rem; font-weight: 700; color: #5b6276; text-transform: uppercase; letter-spacing: .5px; }
+
+    /* Confetti-like decorative dots */
+    .rz-res-card .deco-dot {
+      position: absolute; border-radius: 50%; pointer-events: none; opacity: .06;
+    }
+
+    /* Reward Zone Result Cards - kept for backward compat but overridden */
     .rz-result-card {
       background: linear-gradient(135deg, rgba(16,185,129,.04), rgba(139,92,246,.04));
       border: 1px solid rgba(16,185,129,.15);
@@ -1100,13 +1429,33 @@
         </div>
       </div>
 
-      <!-- ===================== 🎉 REWARD ZONE - RESULTS ===================== -->
+      <!-- ===================== 🏆 REWARD ZONE — ADVANCED RESULTS ===================== -->
       <div id="tab-giveawayresults" class="tab-content">
-        <div class="rz-hero">
-          <div class="rz-hero-title"><span class="rz-emoji">🏆</span> Reward Zone — Results</div>
-          <div class="rz-hero-sub">View completed giveaways, winners, and prize details</div>
+        <!-- Aurora Hero -->
+        <div class="rz-results-hero">
+          <div class="rz-results-hero-icon">🏆</div>
+          <div class="rz-results-hero-title">Reward Zone — Results</div>
+          <div class="rz-results-hero-sub">Track completed giveaways, winners, prize distribution & performance analytics</div>
+          <div class="rz-results-hero-stats" id="rzResultsHeroStats">
+            <div class="rz-results-hero-stat">
+              <div class="rz-results-hero-stat-dot" style="background:#6366f1;"></div>
+              <div class="rz-results-hero-stat-text"><b id="rzHeroCompleted">0</b> Completed</div>
+            </div>
+            <div class="rz-results-hero-stat">
+              <div class="rz-results-hero-stat-dot" style="background:#fbbf24;"></div>
+              <div class="rz-results-hero-stat-text"><b id="rzHeroWinners">0</b> Winners</div>
+            </div>
+            <div class="rz-results-hero-stat">
+              <div class="rz-results-hero-stat-dot" style="background:#34d399;"></div>
+              <div class="rz-results-hero-stat-text"><b id="rzHeroPrize">0</b> Distributed</div>
+            </div>
+          </div>
         </div>
 
+        <!-- Summary Bar -->
+        <div class="rz-res-summary-bar" id="rzResSummaryBar"></div>
+
+        <!-- Results List -->
         <div id="giveawayResultsList">
           <div style="text-align:center;padding:30px;color:var(--text-muted);"><i class="fas fa-spinner fa-spin" style="font-size:1.5rem;"></i><br><br>Loading results...</div>
         </div>
@@ -1440,7 +1789,7 @@
   }
 
   // ══════════════════════════════════════════════════════════════
-  // FIREBASE + CORE LOGIC (100% PRESERVED)
+  // FIREBASE + CORE LOGIC
   // ══════════════════════════════════════════════════════════════
   const firebaseConfig = {apiKey: "AIzaSyCKSKfP_XVQ-FJosGyYQEey_cUWRgzfTzg",authDomain: "reward-zone-af084.firebaseapp.com",projectId: "reward-zone-af084",storageBucket: "reward-zone-af084.firebasestorage.app",messagingSenderId: "1031496148790",appId: "1:1031496148790:web:eec0f6ddfaccb3b915b597"};
   firebase.initializeApp(firebaseConfig);
@@ -1453,7 +1802,10 @@
   const BOT_TOKEN = "8748581173:AAGecwy4eIJseElcLb7LBMAaVjoD0st-UC0";
   document.getElementById('botToken').value = BOT_TOKEN;
 
-  const APP_NAME = 'TaskHive Task Pro';
+  // Dynamic bot name — uses config.botName or fallback
+  function getBotName() {
+    return configData.botName || 'Reward Zone';
+  }
 
   function toast(msg, dur=2800) {
     const t = document.getElementById('toast');
@@ -1509,29 +1861,220 @@
   }
 
   function nowStr(){ return new Date().toLocaleString('en-GB',{hour12:true}); }
+  function dateStr(ts){ return ts ? new Date(ts).toLocaleString('en-GB',{hour12:true, day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—'; }
+
+  // ══════════════════════════════════════════════════════════════
+  // 🔔 PROFESSIONAL NOTIFICATION TEMPLATES — Bot Name Dynamic
+  // ══════════════════════════════════════════════════════════════
 
   function notifyApproved({title, lines}){
-    let body = `╭━━━━━━━━━━━━━━━━━━━╮\n`;
-    body += `   ✅ <b>${title}</b>\n`;
-    body += `╰━━━━━━━━━━━━━━━━━━━╯\n\n`;
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ✅ <b>${title}</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
     body += lines.join('\n');
-    body += `\n\n🕒 <i>${nowStr()}</i>\n━━━━━━━━━━━━━━━━━━━━━\n🐝 <b>${APP_NAME}</b>`;
+    body += `\n\n━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
     return body;
   }
+
   function notifyRejected({title, lines}){
-    let body = `╭━━━━━━━━━━━━━━━━━━━╮\n`;
-    body += `   ❌ <b>${title}</b>\n`;
-    body += `╰━━━━━━━━━━━━━━━━━━━╯\n\n`;
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ❌ <b>${title}</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
     body += lines.join('\n');
-    body += `\n\n🕒 <i>${nowStr()}</i>\n━━━━━━━━━━━━━━━━━━━━━\n🐝 <b>${APP_NAME}</b>`;
+    body += `\n\n━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
     return body;
   }
+
   function notifyInfo({emoji, title, lines}){
-    let body = `╭━━━━━━━━━━━━━━━━━━━╮\n`;
-    body += `   ${emoji} <b>${title}</b>\n`;
-    body += `╰━━━━━━━━━━━━━━━━━━━╯\n\n`;
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ${emoji} <b>${title}</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
     body += lines.join('\n');
-    body += `\n\n🕒 <i>${nowStr()}</i>\n━━━━━━━━━━━━━━━━━━━━━\n🐝 <b>${APP_NAME}</b>`;
+    body += `\n\n━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // Premium giveaway notification
+  function notifyGiveaway({emoji, title, lines}){
+    const bn = getBotName();
+    let body = `🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊\n\n`;
+    body += `${emoji} <b>${title}</b>\n\n`;
+    body += lines.join('\n');
+    body += `\n\n🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊\n\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — 🎉 Reward Zone`;
+    return body;
+  }
+
+  // Winner notification (premium)
+  function notifyWinner({userName, giveawayTitle, reward, cur}){
+    const bn = getBotName();
+    let body = `🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆\n\n`;
+    body += `🎉 <b>অভিনন্দন! আপনি জিতেছেন!</b>\n\n`;
+    body += `👤 প্রিয় <b>${userName}</b>,\n`;
+    body += `আপনি "<b>${giveawayTitle}</b>" গিভঅ্যাওয়েতে\n`;
+    body += `বিজয়ী হিসেবে নির্বাচিত হয়েছেন! 🥳\n\n`;
+    body += `┌──────────────────┐\n`;
+    body += `│  💰 পুরস্কার: <b>+${reward} ${cur}</b>\n`;
+    body += `│  ✅ ব্যালেন্সে যোগ হয়েছে\n`;
+    body += `│  📊 এখনই চেক করুন!\n`;
+    body += `└──────────────────┘\n\n`;
+    body += `🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆\n\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — 🎉 Reward Zone`;
+    return body;
+  }
+
+  // Payment approved premium
+  function notifyPaymentApproved({userName, amount, method, account, cur, chargePct, chargeAmt, netAmt}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ✅ <b>পেমেন্ট সফল হয়েছে!</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `👤 <b>${userName}</b>, আপনার উত্তোলন সফলভাবে\nঅনুমোদিত ও প্রসেস হয়েছে।\n\n`;
+    body += `┌─── 💳 পেমেন্ট ডিটেইলস ───┐\n`;
+    body += `│ 💵 পরিমাণ: <b>${amount} ${cur}</b>\n`;
+    if(chargePct > 0) {
+      body += `│ ⚡ চার্জ (${chargePct}%): <b>-${chargeAmt} ${cur}</b>\n`;
+      body += `│ 💰 নেট পরিমাণ: <b>${netAmt} ${cur}</b>\n`;
+    }
+    body += `│ 🏦 মেথড: <b>${method}</b>\n`;
+    body += `│ 📒 একাউন্ট: <code>${account}</code>\n`;
+    body += `│ ✅ স্ট্যাটাস: <b>Approved & Paid</b>\n`;
+    body += `└──────────────────────┘\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // Payment rejected premium
+  function notifyPaymentRejected({userName, amount, cur, reason}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ❌ <b>উত্তোলন বাতিল হয়েছে</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `👤 <b>${userName}</b>, আপনার উত্তোলন রিকোয়েস্ট\nবাতিল করা হয়েছে।\n\n`;
+    body += `┌─── ℹ️ বিবরণ ───┐\n`;
+    body += `│ 💵 পরিমাণ: <b>${amount} ${cur}</b>\n`;
+    body += `│ ♻️ রিফান্ড: <b>সম্পূর্ণ ব্যালেন্সে ফেরত</b>\n`;
+    body += `│ ❌ স্ট্যাটাস: <b>Rejected</b>\n`;
+    body += `└──────────────────┘\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // Deposit approved premium
+  function notifyDepositApproved({userName, amount, cur}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ✅ <b>ডিপোজিট অনুমোদিত!</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `👤 <b>${userName}</b>, আপনার ডিপোজিট সফলভাবে\nঅনুমোদিত হয়েছে! 🎉\n\n`;
+    body += `┌─── 💰 ডিপোজিট ডিটেইলস ───┐\n`;
+    body += `│ 💵 পরিমাণ: <b>+${amount} ${cur}</b>\n`;
+    body += `│ 📊 টাস্ক ব্যালেন্সে যোগ হয়েছে\n`;
+    body += `│ ✅ স্ট্যাটাস: <b>Approved</b>\n`;
+    body += `└───────────────────────┘\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // Deposit rejected premium
+  function notifyDepositRejected({userName, amount, cur}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ❌ <b>ডিপোজিট বাতিল</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `👤 <b>${userName}</b>, আপনার ডিপোজিট রিকোয়েস্ট\nবাতিল করা হয়েছে।\n\n`;
+    body += `┌─── ℹ️ বিবরণ ───┐\n`;
+    body += `│ 💵 পরিমাণ: <b>${amount} ${cur}</b>\n`;
+    body += `│ ❌ স্ট্যাটাস: <b>Rejected</b>\n`;
+    body += `└──────────────────┘\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // Task approved premium
+  function notifyTaskApproved({creatorName, taskTitle}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  ✅ <b>টাস্ক অনুমোদিত!</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `👤 <b>${creatorName}</b>, আপনার টাস্ক সফলভাবে\nঅনুমোদিত হয়েছে! 🎉\n\n`;
+    body += `┌─── 📝 টাস্ক ডিটেইলস ───┐\n`;
+    body += `│ 📋 টাস্ক: <b>${taskTitle}</b>\n`;
+    body += `│ ✅ স্ট্যাটাস: <b>Active</b>\n`;
+    body += `│ 🚀 ইউজাররা এখন দেখতে পাবে\n`;
+    body += `└──────────────────────┘\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // New task broadcast
+  function notifyNewTask({taskName, reward, url, cur}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  🆕 <b>নতুন টাস্ক এসেছে!</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `📝 <b>টাস্ক:</b> ${taskName}\n`;
+    body += `💰 <b>রিওয়ার্ড:</b> +${reward} ${cur}\n`;
+    body += `🔗 <b>লিংক:</b> ${url}\n\n`;
+    body += `⚡ এখনই সম্পন্ন করুন!\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // Promo code broadcast
+  function notifyPromoCode({code, reward, cur}){
+    const bn = getBotName();
+    let body = `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+    body += `┃  🎁 <b>নতুন প্রমো কোড!</b>\n`;
+    body += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
+    body += `🎟️ কোড: <code>${code}</code>\n`;
+    body += `💰 পুরস্কার: <b>+${reward} ${cur}</b>\n\n`;
+    body += `⚡ এখনই ব্যবহার করুন!\n\n`;
+    body += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — Official Notification`;
+    return body;
+  }
+
+  // New giveaway broadcast
+  function notifyNewGiveaway({title, reward, winners, totalPrize, maxPart, cur}){
+    const bn = getBotName();
+    let body = `🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊\n\n`;
+    body += `🎁 <b>নতুন গিভঅ্যাওয়ে শুরু হয়েছে!</b>\n\n`;
+    body += `📋 <b>${title}</b>\n\n`;
+    body += `┌─── 🏆 ডিটেইলস ───┐\n`;
+    body += `│ 💰 প্রতি বিজয়ী: <b>${reward} ${cur}</b>\n`;
+    body += `│ 👑 বিজয়ী সংখ্যা: <b>${winners} জন</b>\n`;
+    body += `│ 🎯 মোট পুরস্কার: <b>${totalPrize} ${cur}</b>\n`;
+    body += `│ 👥 সর্বোচ্চ অংশগ্রহণ: <b>${maxPart} জন</b>\n`;
+    body += `└──────────────────┘\n\n`;
+    body += `⚡ <b>এখনই যোগ দিন!</b>\n\n`;
+    body += `🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊\n\n`;
+    body += `🕒 ${nowStr()}\n`;
+    body += `🤖 <b>${bn}</b> — 🎉 Reward Zone`;
     return body;
   }
 
@@ -1618,7 +2161,7 @@
   async function broadcastNewTask(taskData) {
     if(!BOT_TOKEN) return;
     const uids = Object.keys(allUsersCache); const cur = configData.currencySymbol||'TK';
-    const msg = notifyInfo({emoji:'🆕',title:'নতুন টাস্ক!',lines:[`📝 <b>টাস্ক:</b> ${taskData.name}`,`💰 <b>রিওয়ার্ড:</b> +${taskData.reward} ${cur}`,`🔗 ${taskData.url}`]});
+    const msg = notifyNewTask({taskName:taskData.name, reward:taskData.reward, url:taskData.url, cur});
     for(let i=0;i<uids.length;i++){ await sendTgMsg(uids[i],msg); await new Promise(r=>setTimeout(r,100)); }
     toast(`📢 Task broadcasted to ${uids.length} users`);
   }
@@ -1649,8 +2192,7 @@
       onConfirm: async () => {
         await db.ref('withdrawals/'+key).update({status:'approved',chargePercent:chargePct,chargeAmount:chargeAmt,netAmount:netAmt});
         await db.ref('users/'+userId+'/withdrawHistory/'+key).update({status:'approved'});
-        const chargeLines = chargePct>0?[`⚡ <b>চার্জ:</b> ${chargePct}% = -${chargeAmt.toFixed(2)} ${cur}`,`💵 <b>নেট:</b> ${netAmt.toFixed(2)} ${cur}`]:[`💵 <b>পরিমাণ:</b> ${amount} ${cur}`];
-        sendTgMsg(userId, notifyApproved({title:'পেমেন্ট সফল!',lines:[`<b>${userName}</b>, আপনার উত্তোলন অনুমোদিত।`,``,...chargeLines,`🏦 ${method}`,`📒 <code>${account}</code>`,`✅ Approved & Paid`]}));
+        sendTgMsg(userId, notifyPaymentApproved({userName, amount, method, account, cur, chargePct, chargeAmt:chargeAmt.toFixed(2), netAmt:netAmt.toFixed(2)}));
         toast('✅ Payment Approved!');
       }
     });
@@ -1661,7 +2203,7 @@
       onConfirm: async () => {
         const cur=configData.currencySymbol||'TK'; await db.ref('withdrawals/'+key).update({status:'rejected'}); await db.ref('users/'+userId+'/withdrawHistory/'+key).update({status:'rejected'});
         const snap = await db.ref('users/'+userId).once('value'); if(snap.exists()){const u=snap.val();await db.ref('users/'+userId).update({balance:(u.balance||0)+Number(amount),totalWithdrawn:Math.max(0,(u.totalWithdrawn||0)-Number(amount))});}
-        sendTgMsg(userId, notifyRejected({title:'উত্তোলন বাতিল',lines:[`<b>${userName}</b>, আপনার উত্তোলন বাতিল হয়েছে।`,`💵 ${amount} ${cur}`,`♻️ রিফান্ড করা হয়েছে।`]}));
+        sendTgMsg(userId, notifyPaymentRejected({userName, amount, cur}));
         toast('❌ Rejected & Refunded');
       }
     });
@@ -1677,7 +2219,7 @@
 
   async function broadcastPromoCode(code,reward) {
     if(!BOT_TOKEN) return; const uids=Object.keys(allUsersCache); const cur=configData.currencySymbol||'TK';
-    const msg = notifyInfo({emoji:'🎁',title:'নতুন প্রমো কোড!',lines:[`💰 <code>${code}</code>`,`🎁 +${reward} ${cur}`]});
+    const msg = notifyPromoCode({code, reward, cur});
     for(let i=0;i<uids.length;i++){await sendTgMsg(uids[i],msg);await new Promise(r=>setTimeout(r,110));}
   }
 
@@ -1721,16 +2263,16 @@
 
   function searchUser() { const uid=document.getElementById('searchUid').value.trim(); const box=document.getElementById('userResultBox'); if(!uid)return toast('Enter ID'); const u=allUsersCache[uid]; if(!u){box.style.display='block';box.innerHTML='<p style="color:var(--danger);text-align:center;padding:10px;">Not found.</p>';return;} const cur=configData.currencySymbol||'TK'; box.style.display='block'; box.innerHTML=`<div style="border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-top:10px;"><div style="font-weight:800;font-size:1rem;color:#fff;margin-bottom:8px;">${u.name||'Unknown'} (${u.id})</div><div style="font-size:.82rem;color:var(--text-muted);line-height:1.8;">Balance: <b style="color:var(--success);">${(u.balance||0).toFixed(2)} ${cur}</b><br>Earned: ${(u.totalEarned||0).toFixed(2)}<br>Refs: ${u.referrals||0}<br>Withdrawn: ${(u.totalWithdrawn||0).toFixed(2)}${u.isBanned?'<br><span style="color:var(--danger);font-weight:800;">⛔ BANNED</span>':''}</div><div style="display:flex;gap:8px;margin-top:12px;"><input type="number" id="searchBalInput" placeholder="Amount" style="flex:1;"><button class="btn btn-success btn-sm" onclick="addBalance('${u.id}','${u.name||'User'}',true)"><i class="fas fa-plus"></i></button><button class="btn btn-warn btn-sm" onclick="deductBalance('${u.id}','${u.name||'User'}',true)"><i class="fas fa-minus"></i></button></div><div style="display:flex;gap:8px;margin-top:8px;">${u.isBanned?`<button class="btn btn-success btn-sm" style="flex:1;" onclick="unbanUser('${u.id}','${u.name||'User'}',true)"><i class="fas fa-unlock"></i> Unban</button>`:`<button class="btn btn-danger btn-sm" style="flex:1;" onclick="banUser('${u.id}','${u.name||'User'}',true)"><i class="fas fa-ban"></i> Ban</button>`}<button class="btn btn-ghost btn-sm" style="flex:1;" onclick="resetUser('${u.id}','${u.name||'User'}')"><i class="fas fa-redo"></i> Reset</button></div></div>`; }
 
-  async function addBalance(uid,name,fs=false) { const el=document.getElementById(fs?'searchBalInput':'balInput_'+uid); const amt=Number(el.value); if(!amt||amt<=0)return toast('Enter amount'); const snap=await db.ref('users/'+uid).once('value'); if(!snap.exists())return toast('Not found'); const u=snap.val(); await db.ref('users/'+uid).update({balance:(u.balance||0)+amt,totalEarned:(u.totalEarned||0)+amt}); el.value=''; toast(`✅ +${amt} added`); sendTgMsg(uid,notifyInfo({emoji:'🎁',title:'বোনাস!',lines:[`<b>${name}</b>, +${amt} ${configData.currencySymbol||'TK'} যোগ হয়েছে।`]})); }
+  async function addBalance(uid,name,fs=false) { const el=document.getElementById(fs?'searchBalInput':'balInput_'+uid); const amt=Number(el.value); if(!amt||amt<=0)return toast('Enter amount'); const snap=await db.ref('users/'+uid).once('value'); if(!snap.exists())return toast('Not found'); const u=snap.val(); await db.ref('users/'+uid).update({balance:(u.balance||0)+amt,totalEarned:(u.totalEarned||0)+amt}); el.value=''; toast(`✅ +${amt} added`); sendTgMsg(uid,notifyInfo({emoji:'🎁',title:'বোনাস যোগ হয়েছে!',lines:[`👤 <b>${name}</b>`,`💰 +${amt} ${configData.currencySymbol||'TK'} আপনার ব্যালেন্সে যোগ করা হয়েছে।`,`📊 এখনই চেক করুন!`]})); }
   async function deductBalance(uid,name,fs=false) { const el=document.getElementById(fs?'searchBalInput':'balInput_'+uid); const amt=Number(el.value); if(!amt||amt<=0)return toast('Enter amount'); const snap=await db.ref('users/'+uid).once('value'); if(!snap.exists())return toast('Not found'); const u=snap.val(); if((u.balance||0)<amt)return toast('⚠️ Insufficient'); await db.ref('users/'+uid).update({balance:(u.balance||0)-amt}); el.value=''; toast(`✅ -${amt} deducted`); }
-  async function banUser(uid,name,fs=false) { showConfirm({icon:'<i class="fas fa-ban"></i>',iconClass:'ic-red',title:'Ban User?',msg:`Ban ${name}?`,btnLabel:'Ban',btnClass:'btn-danger',onConfirm:async()=>{await db.ref('users/'+uid).update({isBanned:true});toast('🔒 Banned');if(fs){document.getElementById('searchUid').value=uid;searchUser();}sendTgMsg(uid,notifyInfo({emoji:'🚫',title:'সাসপেন্ড',lines:[`<b>${name}</b>, আপনার একাউন্ট সাসপেন্ড।`]}));}}); }
-  async function unbanUser(uid,name,fs=false) { await db.ref('users/'+uid).update({isBanned:false,banReason:''}); toast('✅ Unbanned'); if(fs){document.getElementById('searchUid').value=uid;searchUser();} sendTgMsg(uid,notifyInfo({emoji:'🔓',title:'সচল',lines:[`<b>${name}</b>, একাউন্ট সচল।`]})); }
+  async function banUser(uid,name,fs=false) { showConfirm({icon:'<i class="fas fa-ban"></i>',iconClass:'ic-red',title:'Ban User?',msg:`Ban ${name}?`,btnLabel:'Ban',btnClass:'btn-danger',onConfirm:async()=>{await db.ref('users/'+uid).update({isBanned:true});toast('🔒 Banned');if(fs){document.getElementById('searchUid').value=uid;searchUser();}sendTgMsg(uid,notifyInfo({emoji:'🚫',title:'একাউন্ট সাসপেন্ড',lines:[`👤 <b>${name}</b>`,`আপনার একাউন্ট সাসপেন্ড করা হয়েছে।`,`সাপোর্টে যোগাযোগ করুন।`]}));}}); }
+  async function unbanUser(uid,name,fs=false) { await db.ref('users/'+uid).update({isBanned:false,banReason:''}); toast('✅ Unbanned'); if(fs){document.getElementById('searchUid').value=uid;searchUser();} sendTgMsg(uid,notifyInfo({emoji:'🔓',title:'একাউন্ট সচল',lines:[`👤 <b>${name}</b>`,`আপনার একাউন্ট পুনরায় সচল করা হয়েছে।`]})); }
   async function resetUser(uid,name) { showConfirm({icon:'<i class="fas fa-redo"></i>',iconClass:'ic-orange',title:'Reset?',msg:`Reset ${name} balance to 0?`,btnLabel:'Reset',btnClass:'btn-warn',onConfirm:async()=>{await db.ref('users/'+uid).update({balance:0});toast('✅ Reset');}}); }
   async function sendSingleMsg(uid,name,fs=false) { if(!BOT_TOKEN)return toast('⚠️ Bot Token missing!'); const txtEl=fs?document.getElementById('searchMsgTxt'):document.getElementById('msgTxt_'+uid); if(!txtEl)return; const msg=txtEl.value.trim(); if(!msg)return toast('Type message'); const ok=await sendTgMsg(uid,notifyInfo({emoji:'📩',title:'অ্যাডমিন বার্তা',lines:[msg]})); toast(ok?`✅ Sent to ${name}`:`❌ Failed`); txtEl.value=''; }
 
   async function sendBroadcast() { const msg=document.getElementById('bcMessage').value.trim(); const statusEl=document.getElementById('bcStatus'); const btn=document.getElementById('bcBtn'); if(!msg)return toast('Enter message'); if(!BOT_TOKEN){statusEl.innerHTML="<span style='color:var(--danger);'>⚠️ Bot Token missing.</span>";return;} const uids=Object.keys(allUsersCache); if(!uids.length)return(statusEl.innerHTML='No users.'); btn.disabled=true;btn.innerHTML="<i class='fas fa-spinner fa-spin'></i> Sending..."; statusEl.innerText=`Sending to ${uids.length}...`; const finalMsg=notifyInfo({emoji:'📢',title:'ঘোষণা',lines:[msg]}); let s=0,f=0; for(let i=0;i<uids.length;i++){const ok=await sendTgMsg(uids[i],finalMsg);if(ok)s++;else f++;await new Promise(r=>setTimeout(r,110));} btn.disabled=false;btn.innerHTML="<i class='fas fa-paper-plane'></i> Send to All Users"; document.getElementById('bcMessage').value=''; statusEl.innerHTML=`<span style="color:var(--success)">✅ Done!</span> Sent: <b>${s}</b> | Failed: <b style="color:var(--danger);">${f}</b>`; }
 
-  async function sendPaymentCompleteMsg() { if(!confirm('Send notice?'))return; if(!BOT_TOKEN)return toast('⚠️ Bot Token missing.'); const uids=Object.keys(allUsersCache); toast('📡 Sending...'); const msg=notifyInfo({emoji:'✅',title:'পেমেন্ট সম্পন্ন',lines:['সকল পেমেন্ট সফলভাবে সম্পন্ন হয়েছে।','','যাদের পেন্ডিং ছিল তারা চেক করুন।']}); let s=0; for(let i=0;i<uids.length;i++){const ok=await sendTgMsg(uids[i],msg);if(ok)s++;await new Promise(r=>setTimeout(r,110));} toast(`📢 Sent to ${s} users`); }
+  async function sendPaymentCompleteMsg() { if(!confirm('Send notice?'))return; if(!BOT_TOKEN)return toast('⚠️ Bot Token missing.'); const uids=Object.keys(allUsersCache); toast('📡 Sending...'); const msg=notifyInfo({emoji:'✅',title:'পেমেন্ট সম্পন্ন',lines:['সকল পেমেন্ট সফলভাবে সম্পন্ন হয়েছে। ✅','','যাদের পেন্ডিং ছিল তারা ব্যালেন্স চেক করুন।','ধন্যবাদ! 🙏']}); let s=0; for(let i=0;i<uids.length;i++){const ok=await sendTgMsg(uids[i],msg);if(ok)s++;await new Promise(r=>setTimeout(r,110));} toast(`📢 Sent to ${s} users`); }
 
   function openLightbox(src) { document.getElementById('lightboxImg').src=src; document.getElementById('lightboxOverlay').classList.add('show'); }
   function closeLightbox() { document.getElementById('lightboxOverlay').classList.remove('show'); }
@@ -1765,14 +2307,14 @@
 
   function approveDeposit(key) { const d=allDepositRequests[key]; if(!d)return toast('Not found'); const cur=configData.currencySymbol||'TK'; const userName=d.userName||allUsersCache[d.userId]?.name||'User'; const noteEl=document.getElementById('depNote_'+key); const adminNote=noteEl?noteEl.value.trim():'';
     showConfirm({icon:'<i class="fas fa-check-circle"></i>',iconClass:'ic-green',title:'Approve Deposit?',amtBadge:`+${d.amount} ${cur} → Task Balance`,msg:`Approve ${userName}'s deposit?`,btnLabel:'Approve',btnClass:'btn-success',
-      onConfirm: async () => { const updateData={status:'approved',reviewedAt:Date.now()}; if(adminNote)updateData.adminNote=adminNote; await db.ref('depositRequests/'+key).update(updateData); await db.ref('deposits/'+key).update(updateData); await db.ref('users/'+d.userId+'/depositHistory/'+key).update(updateData); const userSnap=await db.ref('users/'+d.userId).once('value'); if(userSnap.exists()){const u=userSnap.val(); await db.ref('users/'+d.userId).update({taskBalance:(u.taskBalance||0)+Number(d.amount)}); sendTgMsg(d.userId,notifyApproved({title:'ডিপোজিট অনুমোদিত!',lines:[`<b>${userName}</b>, ডিপোজিট অনুমোদিত! 🎉`,`💰 +${d.amount} ${cur}`,`📊 টাস্ক ব্যালেন্সে যোগ হয়েছে।`]}));} toast('✅ Deposit Approved!');
+      onConfirm: async () => { const updateData={status:'approved',reviewedAt:Date.now()}; if(adminNote)updateData.adminNote=adminNote; await db.ref('depositRequests/'+key).update(updateData); await db.ref('deposits/'+key).update(updateData); await db.ref('users/'+d.userId+'/depositHistory/'+key).update(updateData); const userSnap=await db.ref('users/'+d.userId).once('value'); if(userSnap.exists()){const u=userSnap.val(); await db.ref('users/'+d.userId).update({taskBalance:(u.taskBalance||0)+Number(d.amount)}); sendTgMsg(d.userId,notifyDepositApproved({userName, amount:d.amount, cur}));} toast('✅ Deposit Approved!');
       }
     });
   }
 
   function rejectDeposit(key) { const d=allDepositRequests[key]; if(!d)return toast('Not found'); const cur=configData.currencySymbol||'TK'; const userName=d.userName||allUsersCache[d.userId]?.name||'User'; const noteEl=document.getElementById('depNote_'+key); const adminNote=noteEl?noteEl.value.trim():'';
     showConfirm({icon:'<i class="fas fa-times-circle"></i>',iconClass:'ic-red',title:'Reject Deposit?',amtBadge:`${d.amount} ${cur}`,msg:`Reject ${userName}'s deposit?`,btnLabel:'Reject',btnClass:'btn-danger',
-      onConfirm: async () => { const updateData={status:'rejected',reviewedAt:Date.now()}; if(adminNote)updateData.adminNote=adminNote; await db.ref('depositRequests/'+key).update(updateData); await db.ref('deposits/'+key).update(updateData); await db.ref('users/'+d.userId+'/depositHistory/'+key).update(updateData); sendTgMsg(d.userId,notifyRejected({title:'ডিপোজিট বাতিল',lines:[`<b>${userName}</b>, ডিপোজিট বাতিল হয়েছে।`,`${d.amount} ${cur}`]})); toast('❌ Rejected');
+      onConfirm: async () => { const updateData={status:'rejected',reviewedAt:Date.now()}; if(adminNote)updateData.adminNote=adminNote; await db.ref('depositRequests/'+key).update(updateData); await db.ref('deposits/'+key).update(updateData); await db.ref('users/'+d.userId+'/depositHistory/'+key).update(updateData); sendTgMsg(d.userId,notifyDepositRejected({userName, amount:d.amount, cur})); toast('❌ Rejected');
       }
     });
   }
@@ -1784,7 +2326,7 @@
   function loadUserTasks() { renderUserTasks(); }
   function renderUserTasks() { const container=document.getElementById('utaskContainer'); const cur=configData.currencySymbol||'TK'; const keys=Object.keys(allUserTasks); if(!keys.length){container.innerHTML='<p style="text-align:center;color:var(--text-muted);padding:20px;">No user tasks.</p>';return;} let filtered=[]; keys.forEach(k=>{const t=allUserTasks[k];t._key=k;if(currentUTaskFilter==='all'||t.status===currentUTaskFilter)filtered.push(t);}); filtered.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)); if(!filtered.length){container.innerHTML=`<p style="text-align:center;color:var(--text-muted);padding:20px;">No ${currentUTaskFilter} tasks.</p>`;return;} let html=''; filtered.forEach(t=>{const key=t._key;const creatorName=t.creatorName||allUsersCache[t.creatorId]?.name||'Unknown';const date=t.createdAt?new Date(t.createdAt).toLocaleString():'—';const participants=t.participants||0;const maxP=t.maxParticipants||0;const reward=t.reward||0;const totalCost=t.totalCost||(reward*maxP);const pct=maxP>0?Math.min(Math.round((participants/maxP)*100),100):0;const statusMap={active:'utask-status-active',pending:'utask-status-pending',paused:'utask-status-paused',rejected:'utask-status-rejected',completed:'utask-status-completed'};const statusBadgeClass=statusMap[t.status]||'utask-status-pending';const statusLabel=(t.status||'pending').charAt(0).toUpperCase()+(t.status||'pending').slice(1); let actionBtns=''; if(t.status==='pending'){actionBtns=`<button class="btn btn-success btn-sm" onclick="approveUserTask('${key}')"><i class="fas fa-check"></i> Approve</button><button class="btn btn-danger btn-sm" onclick="rejectUserTask('${key}')"><i class="fas fa-times"></i> Reject</button>`;}else if(t.status==='active'){actionBtns=`<button class="btn btn-sm" style="background:linear-gradient(135deg,#0984e3,#74b9ff);box-shadow:none;" onclick="pauseUserTask('${key}')"><i class="fas fa-pause"></i> Pause</button>`;}else if(t.status==='paused'){actionBtns=`<button class="btn btn-success btn-sm" onclick="resumeUserTask('${key}')"><i class="fas fa-play"></i> Resume</button>`;} actionBtns+=`<button class="btn btn-danger btn-sm" onclick="deleteUserTask('${key}')"><i class="fas fa-trash"></i></button>`; html+=`<div class="utask-card"><div class="utask-head"><div style="flex:1;"><div class="utask-title">${t.title||t.name||'Untitled'}</div><div class="utask-creator"><i class="fas fa-user"></i> ${creatorName} (${t.creatorId||'—'}) | ${date}</div></div><span class="utask-status-badge ${statusBadgeClass}">${statusLabel}</span></div>${t.description?`<p style="font-size:.82rem;color:var(--text-muted);margin-bottom:10px;">${t.description}</p>`:''}<div class="utask-stats"><div class="utask-chip"><b>+${reward}</b>${cur}/user</div><div class="utask-chip"><b>${participants}/${maxP}</b>Users</div><div class="utask-chip"><b>${totalCost}</b>${cur} Total</div><div class="utask-chip"><b>${pct}%</b>Progress</div></div><div style="height:4px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--success),var(--accent));border-radius:99px;transition:.5s;"></div></div><div class="utask-actions">${actionBtns}</div></div>`;}); container.innerHTML=html; }
 
-  async function approveUserTask(key) { const t=allUserTasks[key]; if(!t)return; const creatorName=t.creatorName||allUsersCache[t.creatorId]?.name||'User'; showConfirm({icon:'<i class="fas fa-check-circle"></i>',iconClass:'ic-green',title:'Approve Task?',msg:`Approve "${t.title||t.name}" by ${creatorName}?`,btnLabel:'Approve',btnClass:'btn-success',onConfirm:async()=>{await db.ref('userTasks/'+key).update({status:'active',approvedAt:Date.now()});await db.ref('activeTasks/'+key).update({status:'active',approvedAt:Date.now()});if(t.creatorId)sendTgMsg(t.creatorId,notifyApproved({title:'টাস্ক অনুমোদিত!',lines:[`<b>${creatorName}</b>, আপনার টাস্ক অনুমোদিত! 🎉`,`📝 ${t.title||t.name}`,`✅ Active`]}));toast('✅ Approved');}}); }
+  async function approveUserTask(key) { const t=allUserTasks[key]; if(!t)return; const creatorName=t.creatorName||allUsersCache[t.creatorId]?.name||'User'; showConfirm({icon:'<i class="fas fa-check-circle"></i>',iconClass:'ic-green',title:'Approve Task?',msg:`Approve "${t.title||t.name}" by ${creatorName}?`,btnLabel:'Approve',btnClass:'btn-success',onConfirm:async()=>{await db.ref('userTasks/'+key).update({status:'active',approvedAt:Date.now()});await db.ref('activeTasks/'+key).update({status:'active',approvedAt:Date.now()});if(t.creatorId)sendTgMsg(t.creatorId,notifyTaskApproved({creatorName, taskTitle:t.title||t.name}));toast('✅ Approved');}}); }
   async function rejectUserTask(key) { const t=allUserTasks[key]; if(!t)return; const cur=configData.currencySymbol||'TK'; showConfirm({icon:'<i class="fas fa-times-circle"></i>',iconClass:'ic-red',title:'Reject Task?',msg:`Reject "${t.title||t.name}"? Balance refunded.`,btnLabel:'Reject',btnClass:'btn-danger',onConfirm:async()=>{await db.ref('userTasks/'+key).update({status:'rejected',rejectedAt:Date.now()});await db.ref('activeTasks/'+key).update({status:'rejected'});if(t.creatorId&&t.totalCost){const uSnap=await db.ref('users/'+t.creatorId).once('value');if(uSnap.exists()){const u=uSnap.val();await db.ref('users/'+t.creatorId).update({taskBalance:(u.taskBalance||0)+Number(t.totalCost)});}} toast('❌ Rejected');}}); }
   async function pauseUserTask(key) { showConfirm({icon:'<i class="fas fa-pause-circle"></i>',iconClass:'ic-blue',title:'Pause?',msg:'Users won\'t see it.',btnLabel:'Pause',btnClass:'btn-primary',onConfirm:async()=>{await db.ref('userTasks/'+key).update({status:'paused'});await db.ref('activeTasks/'+key).update({status:'paused'});toast('⏸️ Paused');}}); }
   async function resumeUserTask(key) { await db.ref('userTasks/'+key).update({status:'active'}); await db.ref('activeTasks/'+key).update({status:'active'}); toast('▶️ Resumed'); }
@@ -1798,21 +2340,19 @@
   }
 
   // ══════════════════════════════════════════════════════════════
-  // 🎉 REWARD ZONE — GIVEAWAY MANAGEMENT (FROM SECOND CODE)
+  // 🎉 REWARD ZONE — GIVEAWAY MANAGEMENT
   // ══════════════════════════════════════════════════════════════
   let allGiveaways = {};
   let rzWsCurrentKey = null;
   let rzWsCurrentData = null;
   let rzWsPickedWinners = [];
 
-  // Firebase listener
   db.ref('giveaways').on('value', snap => {
     allGiveaways = snap.exists() ? snap.val() : {};
     renderGiveawaysList();
     updateSidebarBadges();
   });
 
-  // Total Prize Calculator
   function calcTotalPrize() {
     const reward = Number(document.getElementById('gvReward').value) || 0;
     const winners = Number(document.getElementById('gvWinners').value) || 0;
@@ -1822,7 +2362,6 @@
     document.getElementById('totalPrizeBreakdown').innerText = `${reward} ${cur} × ${winners} winners = ${total.toLocaleString()} ${cur}`;
   }
 
-  // Create Giveaway
   async function createGiveaway() {
     const title = document.getElementById('gvTitle').value.trim();
     const desc = document.getElementById('gvDesc').value.trim();
@@ -1852,24 +2391,18 @@
     calcTotalPrize();
     toast('✅ Giveaway created!');
 
-    // Broadcast to all users
+    // Broadcast
     const uids = Object.keys(allUsersCache);
-    const msg = notifyInfo({
-      emoji: '🎁', title: 'নতুন গিভঅ্যাওয়ে!',
-      lines: [`<b>${title}</b>`, ``, `🏆 পুরস্কার: ${reward} ${cur} × ${winners} জন`, `💰 মোট: ${totalPrize} ${cur}`, `👥 সর্বোচ্চ: ${maxPart} জন`, ``, `এখনই যোগ দিন!`]
-    });
+    const msg = notifyNewGiveaway({title, reward, winners, totalPrize, maxPart, cur});
     for (let i = 0; i < uids.length; i++) { await sendTgMsg(uids[i], msg); await new Promise(r => setTimeout(r, 100)); }
   }
 
-  // Load & Render Giveaways
   function loadGiveaways() { renderGiveawaysList(); }
 
   function renderGiveawaysList() {
     const el = document.getElementById('giveawaysList');
     const cur = configData.currencySymbol || 'TK';
     const keys = Object.keys(allGiveaways);
-
-    // Update count badge
     const countBadge = document.getElementById('rzGvCount');
     if (countBadge) countBadge.innerText = keys.length;
 
@@ -1879,7 +2412,6 @@
     }
 
     let html = '';
-    // Sort by createdAt descending
     const sorted = keys.map(k => ({ key: k, data: allGiveaways[k] })).sort((a, b) => (b.data.createdAt || 0) - (a.data.createdAt || 0));
 
     sorted.forEach(({ key, data: g }) => {
@@ -1997,7 +2529,6 @@
     if (count <= 0) return toast('Enter valid count');
     if (count > participants.length) return toast(`Only ${participants.length} available`);
 
-    // Fisher-Yates shuffle
     const shuffled = [...participants];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -2007,16 +2538,12 @@
     rzWsPickedWinners = shuffled.slice(0, count);
     const cur = configData.currencySymbol || 'TK';
 
-    // Clear previous highlights
     document.querySelectorAll('.rz-participant-item').forEach(el => el.classList.remove('rz-is-winner'));
-
-    // Highlight winners
     rzWsPickedWinners.forEach(uid => {
       const el = document.getElementById('rzPItem_' + uid);
       if (el) el.classList.add('rz-is-winner');
     });
 
-    // Show selected winners
     let winHtml = '';
     rzWsPickedWinners.forEach((uid, idx) => {
       const u = allUsersCache[uid] || {};
@@ -2040,7 +2567,6 @@
     for (const uid of rzWsPickedWinners) {
       winnersObj[uid] = { selectedAt: Date.now() };
 
-      // Credit reward to winner
       const uSnap = await db.ref('users/' + uid).once('value');
       if (uSnap.exists()) {
         const u = uSnap.val();
@@ -2048,15 +2574,16 @@
           balance: (u.balance || 0) + g.reward,
           totalEarned: (u.totalEarned || 0) + g.reward
         });
-        // Notify winner
-        sendTgMsg(uid, notifyApproved({
-          title: '🎉 আপনি জিতেছেন!',
-          lines: [`অভিনন্দন! <b>${g.title}</b> গিভঅ্যাওয়েতে জিতেছেন!`, ``, `🏆 পুরস্কার: +${g.reward} ${cur}`, `💰 ব্যালেন্সে যোগ হয়েছে।`]
+        // Premium winner notification
+        sendTgMsg(uid, notifyWinner({
+          userName: u.name || 'User',
+          giveawayTitle: g.title,
+          reward: g.reward,
+          cur
         }));
       }
     }
 
-    // Save winners and mark completed
     await db.ref('giveaways/' + rzWsCurrentKey).update({
       status: 'completed', winners: winnersObj, completedAt: Date.now()
     });
@@ -2065,67 +2592,145 @@
     closeRzWinnerSelect();
   }
 
-  // ═══ GIVEAWAY RESULTS PAGE ═══
+  // ═══ 🏆 ADVANCED GIVEAWAY RESULTS PAGE ═══
   async function loadGiveawayResults() {
     const el = document.getElementById('giveawayResultsList');
+    const summaryEl = document.getElementById('rzResSummaryBar');
     const cur = configData.currencySymbol || 'TK';
     const keys = Object.keys(allGiveaways);
 
     let completed = [];
+    let totalCompletedGw = 0, totalWinnersAll = 0, totalPrizeAll = 0, totalPartsAll = 0, avgPrize = 0;
+
     keys.forEach(k => {
       const g = allGiveaways[k];
       if (g.status === 'completed' && g.winners && Object.keys(g.winners).length > 0) {
         completed.push({ key: k, data: g });
+        totalCompletedGw++;
+        const wCount = Object.keys(g.winners).length;
+        totalWinnersAll += wCount;
+        totalPrizeAll += (g.reward || 0) * wCount;
+        totalPartsAll += g.participants ? Object.keys(g.participants).length : 0;
       }
     });
 
+    avgPrize = totalCompletedGw > 0 ? (totalPrizeAll / totalCompletedGw) : 0;
+
+    // Update hero stats
+    document.getElementById('rzHeroCompleted').innerText = totalCompletedGw;
+    document.getElementById('rzHeroWinners').innerText = totalWinnersAll;
+    document.getElementById('rzHeroPrize').innerText = totalPrizeAll.toLocaleString() + ' ' + cur;
+
+    // Render summary bar
+    summaryEl.innerHTML = `
+      <div class="rz-res-summary-item"><div class="rz-res-summary-val" style="color:#818cf8;">${totalCompletedGw}</div><div class="rz-res-summary-label">Completed</div></div>
+      <div class="rz-res-summary-item"><div class="rz-res-summary-val" style="color:#fbbf24;">${totalWinnersAll}</div><div class="rz-res-summary-label">Total Winners</div></div>
+      <div class="rz-res-summary-item"><div class="rz-res-summary-val" style="color:#34d399;">${totalPrizeAll.toLocaleString()}</div><div class="rz-res-summary-label">Prize (${cur})</div></div>
+      <div class="rz-res-summary-item"><div class="rz-res-summary-val" style="color:#38bdf8;">${totalPartsAll}</div><div class="rz-res-summary-label">Participants</div></div>
+      <div class="rz-res-summary-item"><div class="rz-res-summary-val" style="color:#fb7185;">${avgPrize.toFixed(0)}</div><div class="rz-res-summary-label">Avg Prize/GW</div></div>
+    `;
+
     if (!completed.length) {
-      el.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted);"><i class="fas fa-medal" style="font-size:2.5rem;margin-bottom:12px;color:rgba(236,72,153,.3);display:block;"></i><p style="font-size:.85rem;font-weight:600;">No completed giveaways with winners yet.</p></div>';
+      el.innerHTML = `<div class="rz-results-empty"><div class="rz-results-empty-icon"><i class="fas fa-medal"></i></div><div class="rz-results-empty-title">No completed giveaways yet</div><div class="rz-results-empty-sub">Completed giveaways with winners will appear here with full details.</div></div>`;
       return;
     }
 
     completed.sort((a, b) => (b.data.completedAt || b.data.endDate || 0) - (a.data.completedAt || a.data.endDate || 0));
 
+    // Avatar color palette
+    const avatarColors = [
+      'linear-gradient(135deg, #6366f1, #8b5cf6)',
+      'linear-gradient(135deg, #ec4899, #f472b6)',
+      'linear-gradient(135deg, #06d6a0, #10b981)',
+      'linear-gradient(135deg, #f59e0b, #fbbf24)',
+      'linear-gradient(135deg, #3b82f6, #60a5fa)',
+      'linear-gradient(135deg, #ef4444, #f87171)',
+      'linear-gradient(135deg, #14b8a6, #2dd4bf)',
+      'linear-gradient(135deg, #8b5cf6, #c084fc)',
+    ];
+
     let html = '';
+    let gvIndex = 0;
     for (const gv of completed) {
       const g = gv.data;
       const participants = g.participants ? Object.keys(g.participants).length : 0;
       const winners = g.winners ? Object.keys(g.winners) : [];
       const totalPrize = g.totalPrize || (g.reward * (g.winnerCount || winners.length));
-      const endDateStr = g.endDate ? new Date(g.endDate).toLocaleString('en-GB', { hour12: true }) : 'N/A';
-      const completedDateStr = g.completedAt ? new Date(g.completedAt).toLocaleString('en-GB', { hour12: true }) : endDateStr;
+      const endDateStr = dateStr(g.endDate);
+      const completedDateStr = dateStr(g.completedAt);
+      const createdDateStr = dateStr(g.createdAt);
+      const winRate = participants > 0 ? ((winners.length / participants) * 100).toFixed(1) : '0';
+      const fillRate = g.maxParticipants > 0 ? ((participants / g.maxParticipants) * 100).toFixed(0) : '0';
 
+      // Determine tier
+      let tierClass = 'emerald-tier';
+      if (totalPrize >= 1000) tierClass = 'gold-tier';
+      else if (totalPrize >= 500) tierClass = 'diamond-tier';
+
+      let tierIcon = '<i class="fas fa-trophy"></i>';
+      if (tierClass === 'gold-tier') tierIcon = '<i class="fas fa-crown"></i>';
+      else if (tierClass === 'diamond-tier') tierIcon = '<i class="fas fa-gem"></i>';
+
+      // Winner rows
       let winnerHtml = '';
       let rank = 1;
       for (const uid of winners) {
         const u = allUsersCache[uid] || {};
         const name = u.name || 'Unknown';
-        winnerHtml += `<div class="rz-selected-winner-item"><div class="rz-selected-winner-rank">${rank}</div><div style="flex:1;"><div class="rz-selected-winner-name">${name}</div><div style="font-size:.7rem;color:var(--text-muted);">ID: ${uid}</div></div><div class="rz-selected-winner-prize">+${g.reward} ${cur}</div></div>`;
+        const initial = name[0].toUpperCase();
+        const avColor = avatarColors[(rank - 1) % avatarColors.length];
+        let rankClass = rank <= 3 ? `rank-${rank}` : 'rank-normal';
+        let badgeClass = rank <= 3 ? `rank-badge-${rank}` : 'rank-badge-normal';
+        let prizeTagClass = rank === 1 ? 'prize-tag-gold' : 'prize-tag-default';
+
+        winnerHtml += `
+        <div class="rz-res-winner-row ${rankClass}">
+          <div class="rz-res-winner-rank-badge ${badgeClass}">${rank <= 3 ? ['🥇','🥈','🥉'][rank-1] : '#'+rank}</div>
+          <div class="rz-res-winner-avatar" style="background:${avColor};">${initial}</div>
+          <div class="rz-res-winner-info">
+            <div class="rz-res-winner-name">${name}</div>
+            <div class="rz-res-winner-uid">ID: ${uid}</div>
+          </div>
+          <div class="rz-res-winner-prize-tag ${prizeTagClass}">+${g.reward} ${cur}</div>
+        </div>`;
         rank++;
       }
 
       html += `
-      <div class="rz-result-card">
-        <div class="rz-result-head">
-          <div class="rz-result-icon"><i class="fas fa-trophy"></i></div>
-          <div style="flex:1;">
-            <div class="rz-result-title">${g.title}</div>
-            <div class="rz-result-desc">${g.description || 'No description.'}</div>
+      <div class="rz-res-card">
+        <div class="rz-res-card-topbar"></div>
+        <div class="rz-res-card-header">
+          <div class="rz-res-card-icon ${tierClass}"><div class="tier-glow"></div>${tierIcon}</div>
+          <div class="rz-res-card-title-area">
+            <div class="rz-res-card-title">${g.title}</div>
+            <div class="rz-res-card-desc">${g.description || 'No description provided.'}</div>
           </div>
-          <span style="background:rgba(16,185,129,.12);color:var(--success);font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:99px;"><i class="fas fa-check"></i> Completed</span>
+          <div class="rz-res-completed-badge"><i class="fas fa-check-circle"></i> Completed</div>
         </div>
-        <div class="rz-result-stats">
-          <div class="rz-result-stat"><div class="rz-result-stat-val">${participants}</div><div class="rz-result-stat-label">Participants</div></div>
-          <div class="rz-result-stat"><div class="rz-result-stat-val">${winners.length}</div><div class="rz-result-stat-label">Winners</div></div>
-          <div class="rz-result-stat"><div class="rz-result-stat-val">${g.reward} ${cur}</div><div class="rz-result-stat-label">Per Winner</div></div>
-          <div class="rz-result-stat"><div class="rz-result-stat-val" style="color:var(--warn);">${totalPrize.toLocaleString()} ${cur}</div><div class="rz-result-stat-label">Total Prize</div></div>
-          <div class="rz-result-stat"><div class="rz-result-stat-val" style="font-size:.78rem;">${endDateStr}</div><div class="rz-result-stat-label">End Date</div></div>
-          <div class="rz-result-stat"><div class="rz-result-stat-val" style="font-size:.78rem;">${completedDateStr}</div><div class="rz-result-stat-label">Selection Date</div></div>
+        <div class="rz-res-card-stats">
+          <div class="rz-res-stat-box"><div class="rz-res-stat-val clr-indigo">${participants}</div><div class="rz-res-stat-label">Participants</div></div>
+          <div class="rz-res-stat-box"><div class="rz-res-stat-val clr-amber">${winners.length}</div><div class="rz-res-stat-label">Winners</div></div>
+          <div class="rz-res-stat-box"><div class="rz-res-stat-val clr-emerald">${g.reward}</div><div class="rz-res-stat-label">Per Winner (${cur})</div></div>
+          <div class="rz-res-stat-box"><div class="rz-res-stat-val clr-rose">${totalPrize.toLocaleString()}</div><div class="rz-res-stat-label">Total Prize (${cur})</div></div>
+          <div class="rz-res-stat-box"><div class="rz-res-stat-val clr-sky">${winRate}%</div><div class="rz-res-stat-label">Win Rate</div></div>
+          <div class="rz-res-stat-box"><div class="rz-res-stat-val clr-violet">${fillRate}%</div><div class="rz-res-stat-label">Fill Rate</div></div>
         </div>
-        <div style="font-size:.85rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px;"><i class="fas fa-medal" style="color:var(--rz-gold);"></i> Winner List</div>
-        ${winnerHtml}
-        <div style="margin-top:14px;"><button class="btn btn-danger btn-sm" onclick="deleteGiveawayResult('${gv.key}')"><i class="fas fa-trash"></i> Remove</button></div>
+        <div class="rz-res-winners-section">
+          <div class="rz-res-winners-title"><i class="fas fa-medal"></i> Winner List (${winners.length})</div>
+          ${winnerHtml}
+        </div>
+        <div class="rz-res-card-footer">
+          <div class="rz-res-card-footer-info">
+            <div class="rz-res-footer-chip"><i class="fas fa-calendar-plus"></i> Created: ${createdDateStr}</div>
+            <div class="rz-res-footer-chip"><i class="fas fa-clock"></i> Ended: ${endDateStr}</div>
+            <div class="rz-res-footer-chip"><i class="fas fa-flag-checkered"></i> Selected: ${completedDateStr}</div>
+            <div class="rz-res-footer-chip"><i class="fas fa-users"></i> Max: ${g.maxParticipants || '∞'}</div>
+            <div class="rz-res-footer-chip"><i class="fas fa-dice"></i> Method: ${g.method || 'random'}</div>
+          </div>
+          <button class="btn btn-danger btn-sm" onclick="deleteGiveawayResult('${gv.key}')"><i class="fas fa-trash"></i></button>
+        </div>
       </div>`;
+      gvIndex++;
     }
     el.innerHTML = html;
   }
@@ -2140,7 +2745,7 @@
   }
 
   // ══════════════════════════════════════════════════════════════
-  // UNIFIED DASHBOARD (WITH REWARD ZONE STATS)
+  // UNIFIED DASHBOARD
   // ══════════════════════════════════════════════════════════════
   function loadDashboard() {
     const cur = configData.currencySymbol || 'TK';
@@ -2171,7 +2776,6 @@
     document.getElementById('dash-activeTasks').innerText = activeTasks;
     document.getElementById('dash-totalTaskSpend').innerText = totalTaskSpend.toFixed(1) + ' ' + cur;
 
-    // Deposit stats
     let totalDep = 0, pendingDep = 0, approvedDep = 0, totalDepAmt = 0, pendingDepAmt = 0, approvedDepAmt = 0;
     Object.values(allDepositRequests).forEach(d => { totalDep++; const amt = Number(d.amount || 0); totalDepAmt += amt; if (d.status === 'pending') { pendingDep++; pendingDepAmt += amt; } if (d.status === 'approved') { approvedDep++; approvedDepAmt += amt; } });
     document.getElementById('dash-totalDeposits').innerText = totalDep;
@@ -2181,7 +2785,6 @@
     document.getElementById('dash-approvedDeposits').innerText = approvedDep;
     document.getElementById('dash-approvedDepositsAmt').innerText = approvedDepAmt.toFixed(1) + ' ' + cur;
 
-    // Reward Zone Dashboard Stats
     let totalGw = 0, activeGw = 0, completedGw = 0, gwParticipants = 0, gwWinners = 0, gwPrizeDistributed = 0;
     Object.values(allGiveaways).forEach(g => {
       totalGw++;
@@ -2199,7 +2802,6 @@
     document.getElementById('dash-gwWinners').innerText = gwWinners;
     document.getElementById('dash-gwPrizeDistributed').innerText = gwPrizeDistributed.toFixed(1) + ' ' + cur;
 
-    // Withdrawal stats + Revenue
     db.ref('withdrawals').once('value', snap => {
       let totalWd = 0, pendingWd = 0, approvedPayouts = 0, pendingWdAmt = 0, totalWdAmt = 0;
       if (snap.exists()) { snap.forEach(c => { const w = c.val(); totalWd++; totalWdAmt += Number(w.amount || 0); if (w.status === 'approved' || w.status === 'completed') { approvedPayouts += Number(w.amount || 0); } if (w.status === 'pending') { pendingWd++; pendingWdAmt += Number(w.amount || 0); } }); }
@@ -2245,7 +2847,6 @@
     el.innerHTML = html;
   }
 
-  // Load on init
   setTimeout(() => loadDashboard(), 1500);
 </script>
 </body>
